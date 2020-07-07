@@ -10,10 +10,14 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 # Note: pay close attention to your current directory when trying to open "foo.txt"
 
 # YOUR CODE HERE
-
+foo = open("foo.txt", "r")
+print(foo.read())
+foo.close()
 # Open up a file called "bar.txt" (which doesn't exist yet) for
 # writing. Write three lines of arbitrary content to that file,
 # then close the file. Open up "bar.txt" and inspect it to make
 # sure that it contains what you expect it to contain
 
 # YOUR CODE HERE
+with open("bar.txt", "w") as bar:
+    bar.write("Whosoever holds this hammer,\n if he be worthy,\n shall possess the power of Thor.")
