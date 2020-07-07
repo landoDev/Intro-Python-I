@@ -33,23 +33,17 @@ from datetime import datetime
 
 # user input when running file
 user_input = sys.argv
-# saves the day when program is run globally and converts it to list of strings
+
+# current date made into a list
 today = str(datetime.date(datetime.today())).split("-")
-print(sys.argv)
-print(today)
-if len(user_input) < 2:
-  print(calendar.month(int(today[0]), int(today[1])))
-  
-# if user_input
-# def return_cal(args):
-#   if len(args) < 2:
-#     print(datetime.today())
 
-# print(return_cal(user_input))
-
-  
-# if no input, render current month
-
-# if one arg assume it was a month
-
-# if two args return the current month
+# check the length of user_input to determine which calendar to print
+try:
+  if len(user_input) < 2:
+    print(calendar.month(int(today[0]), int(today[1])))
+  elif len(user_input) > 2:
+    print(calendar.month(int(user_input[2]), int(user_input[1])))
+  else:
+    print(calendar.month(int(today[0]), int(user_input[1])))
+except ValueError:
+  print('Invalid input. Program requires format: <filename> [<MM>] [<YYYY>]')
